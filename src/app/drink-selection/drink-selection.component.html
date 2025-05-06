@@ -1,0 +1,7 @@
+<h2>Выберите напиток</h2>
+<div *ngFor="let drink of drinks">
+  <h3>{{ drink.name }}</h3>
+  <p>{{ drink.description }}</p>
+  <p>Цена: {{ drink.price | currency }}</p>
+  <button (click)="selectDrink(drink)">Выбрать</button>
+</div>
