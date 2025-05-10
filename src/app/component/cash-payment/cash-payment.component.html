@@ -1,0 +1,9 @@
+<h2>Оплата наличными</h2>
+<ng-container *ngIf="drink; else noDrink">
+  <p>Сумма к оплате: {{ drink.price | currency }}</p>
+  <input [(ngModel)]="drinkStateService.paidAmount" placeholder="Внесите сумму" type="number">
+</ng-container>
+<ng-template #noDrink>
+  <p>Выберите напиток</p>
+  <button (click)="router.navigate(['/'])">Главная</button>
+</ng-template>

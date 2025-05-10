@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrl: './payment-selection.component.css'
 })
 export class PaymentSelectionComponent {
-  constructor(private router: Router) {
+  constructor(private readonly router: Router) {
   }
 
   selectPayment(method: string): void {

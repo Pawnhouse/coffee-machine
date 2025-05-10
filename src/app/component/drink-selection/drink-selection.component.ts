@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Drink, DrinkService} from '../drink.service';
+import {Drink, DrinkService} from '../../service/drink.service';
 import {Router} from '@angular/router';
 import {CurrencyPipe, NgForOf} from '@angular/common';
+import {DrinkStateService} from '../../service/drink-state.service';
 
 @Component({
   selector: 'app-drink-selection',
@@ -15,7 +16,11 @@ import {CurrencyPipe, NgForOf} from '@angular/common';
 export class DrinkSelectionComponent implements OnInit {
   drinks: Drink[] = [];
 
-  constructor(private drinkService: DrinkService, private router: Router) {
+  constructor(
+    private readonly drinkService: DrinkService,
+    private readonly router: Router,
+    private readonly drinkStateService: DrinkStateService
+  ) {
   }
 
   ngOnInit(): void {
@@ -23,7 +28,7 @@ export class DrinkSelectionComponent implements OnInit {
   }
 
   selectDrink(drink: Drink): void {
-    localStorage.setItem('selectedDrink', JSON.stringify(drink));
+    this.drinkStateService.drink = drink;
     this.router.navigate(['/payment']);
   }
 }

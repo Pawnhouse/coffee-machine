@@ -1,0 +1,15 @@
+<h2>Оплата банковской картой</h2>
+<ng-container *ngIf="drink; else noDrink">
+  <p>Сумма к оплате: {{ drink.price | currency }}</p>
+  <p>{{ message }}</p>
+  <ng-container *ngIf="!shouldShowBackButton">
+    <button (click)="emulator.BankCardCancel()">Отмена</button>
+  </ng-container>
+  <ng-container *ngIf="shouldShowBackButton">
+    <button (click)="location.back()">Назад</button>
+  </ng-container>
+</ng-container>
+<ng-template #noDrink>
+  <p>Выберите напиток</p>
+  <button (click)="router.navigate(['/'])">Главная</button>
+</ng-template>

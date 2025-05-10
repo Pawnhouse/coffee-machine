@@ -16,13 +16,20 @@ export class EmulatorImpl implements Emulator {
     this.cashInKeydownHandler = this.handleCashInKeydown.bind(this);
     this.bankCardKeydownHandler = this.handleBankCardKeydown.bind(this);
     this.vendKeydownHandler = this.handleVendKeydown.bind(this);
+  }
 
+  private reset() {
+    this.cashInCallback = null;
+    this.currentInput = '';
+    this.transactionCallback = null;
+    this.displayCallback = null;
+    this.vendCallback = null;
   }
 
   private handleCashInKeydown(event: KeyboardEvent): void {
     const key = event.key;
 
-    if (/^[0-9]$/.test(key)) {
+    if (/^\d$/.test(key)) {
       this.currentInput += key;
     } else if (key === 'Enter' && this.currentInput.length > 0) {
       const amount = parseInt(this.currentInput, 10);
@@ -33,6 +40,7 @@ export class EmulatorImpl implements Emulator {
 
 
   StartCashin(cb: (amount: number) => void): void {
+    this.reset();
     this.cashInCallback = cb;
     this.currentInput = '';
     window.addEventListener('keydown', this.cashInKeydownHandler);
@@ -68,6 +76,7 @@ export class EmulatorImpl implements Emulator {
     cb: (result: boolean) => void,
     display_cb: (pinPadText: string) => void
   ): void {
+    this.reset();
     this.transactionCallback = cb;
     this.displayCallback = display_cb;
     this.displayCallback('Приложите карту');
@@ -94,6 +103,7 @@ export class EmulatorImpl implements Emulator {
   }
 
   Vend(product_idx: number, cb: (result: boolean) => void): void {
+    this.reset();
     this.vendCallback = cb;
     window.addEventListener('keydown', this.vendKeydownHandler);
   }
