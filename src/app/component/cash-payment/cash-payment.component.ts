@@ -34,6 +34,7 @@ export class CashPaymentComponent {
     if (this.drinkStateService.paidAmount >= this.drink!.price) {
       this.emulator.StopCashin(() => undefined);
       this.drinkStateService.isPreparing = true;
+      this.drinkStateService.setVendResult(null);
       this.emulator.Vend(0, (result) => {
         this.drinkStateService.setVendResult(result);
       })

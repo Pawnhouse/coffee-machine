@@ -76,4 +76,11 @@ export class DrinkStateService {
       localStorage.removeItem('vendResult');
     }
   }
+
+  reset(): void {
+    this._drink = null;
+    this._paidAmount = 0;
+    this._isPreparing = false;
+    this._vendResult.next(null);
+  }
 }

@@ -21,6 +21,7 @@ export class DrinkSelectionComponent implements OnInit {
     private readonly router: Router,
     private readonly drinkStateService: DrinkStateService
   ) {
+    this.drinkStateService.reset();
   }
 
   ngOnInit(): void {

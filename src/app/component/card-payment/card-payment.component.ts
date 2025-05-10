@@ -39,6 +39,7 @@ export class CardPaymentComponent {
   finishOperation(result: any) {
     if (result) {
       this.drinkStateService.isPreparing = true;
+      this.drinkStateService.setVendResult(null);
       this.emulator.Vend(0, (result) => {
         this.drinkStateService.setVendResult(result);
       });
