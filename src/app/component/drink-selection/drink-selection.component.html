@@ -1,7 +1,17 @@
-<h2>Выберите напиток</h2>
-<div *ngFor="let drink of drinks">
-  <h3>{{ drink.name }}</h3>
-  <p>{{ drink.description }}</p>
-  <p>Цена: {{ drink.price | currency }}</p>
-  <button (click)="selectDrink(drink)">Выбрать</button>
+<div class="header">
+  <h2>Выбор напитка</h2>
+</div>
+<div class="inner-container">
+  <div class="drinks-grid">
+    <div
+      *ngFor="let drink of drinks"
+      class="drink-card"
+      (click)="selectDrink(drink)"
+      (keydown)="selectDrink(drink)"
+    >
+      <img [src]="drink.image" [alt]="drink.name" class="drink-image" />
+      <h3>{{ drink.name }}</h3>
+      <p>от <span class="price">{{ drink.price }} ₽</span></p>
+    </div>
+  </div>
 </div>

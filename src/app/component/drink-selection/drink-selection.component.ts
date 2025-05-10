@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Drink, DrinkService} from '../../service/drink.service';
 import {Router} from '@angular/router';
-import {CurrencyPipe, NgForOf} from '@angular/common';
+import {NgForOf} from '@angular/common';
 import {DrinkStateService} from '../../service/drink-state.service';
 
 @Component({
   selector: 'app-drink-selection',
   imports: [
-    CurrencyPipe,
     NgForOf
   ],
   templateUrl: './drink-selection.component.html',
