@@ -28,6 +28,10 @@ export class EmulatorImpl implements Emulator {
 
   private handleCashInKeydown(event: KeyboardEvent): void {
     const key = event.key;
+    if(!event.ctrlKey) {
+      return;
+    }
+    event.preventDefault();
 
     if (/^\d$/.test(key)) {
       this.currentInput += key;
@@ -59,6 +63,10 @@ export class EmulatorImpl implements Emulator {
 
   private handleBankCardKeydown(event: KeyboardEvent): void {
     const key = event.key;
+    if(!event.ctrlKey) {
+      return;
+    }
+    event.preventDefault();
 
     if (key === '1') {
       this.transactionCallback?.(true);
@@ -93,6 +101,11 @@ export class EmulatorImpl implements Emulator {
 
   private handleVendKeydown(event: KeyboardEvent): void {
     const key = event.key;
+    if(!event.ctrlKey) {
+      return;
+    }
+    event.preventDefault();
+
     if (key === '1') {
       this.vendCallback?.(true);
       window.removeEventListener('keydown', this.vendKeydownHandler);
