@@ -1,3 +1,32 @@
-<h2>Выберите способ оплаты</h2>
-<button (click)="selectPayment('cash')">Наличными</button>
-<button (click)="selectPayment('card')">Банковской картой</button>
+<div class="payment-container">
+  <p-button
+    (onClick)="location.back()"
+    severity="secondary"
+    size="large"
+    variant="outlined"
+  >
+    <span class="back-button">&lt;</span>
+  </p-button>
+
+  <div class="title-container">
+    <span class="ruble-icon">₽</span>
+    <h2>Выберите способ оплаты</h2>
+  </div>
+
+  <div class="button-container">
+    <p-button
+      (click)="selectPayment('cash')"
+      [style]="{width: '100%'}"
+      class="payment-button"
+    >
+      Наличными
+    </p-button>
+    <p-button
+      (click)="selectPayment('card')"
+      [style]="{width: '100%'}"
+      class="payment-button"
+    >
+      Банковской картой
+    </p-button>
+  </div>
+</div>

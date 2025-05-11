@@ -1,14 +1,21 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
+import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-payment-selection',
-  imports: [],
+  imports: [
+    Button
+  ],
   templateUrl: './payment-selection.component.html',
   styleUrl: './payment-selection.component.css'
 })
 export class PaymentSelectionComponent {
-  constructor(private readonly router: Router) {
+  constructor(
+    private readonly router: Router,
+    protected readonly location: Location,
+  ) {
   }
 
   selectPayment(method: string): void {
