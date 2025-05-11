@@ -78,9 +78,9 @@ export class DrinkStateService {
   }
 
   reset(): void {
-    this._drink = null;
-    this._paidAmount = 0;
-    this._isPreparing = false;
-    this._vendResult.next(null);
+    this.drink = null;
+    this.paidAmount = 0;
+    this.isPreparing = false;
+    this.setVendResult(null);
   }
 }
