@@ -42,7 +42,7 @@ export class CardPaymentComponent {
     if (result) {
       this.drinkStateService.isPreparing = true;
       this.drinkStateService.setVendResult(null);
-      this.emulator.Vend(0, (result) => {
+      this.emulator.Vend(this.drink!.id, (result) => {
         this.drinkStateService.setVendResult(result);
       });
       this.router.navigate(['/preparation']);

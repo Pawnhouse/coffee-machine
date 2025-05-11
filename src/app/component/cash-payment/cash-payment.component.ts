@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {CurrencyPipe, NgIf} from '@angular/common';
+import {NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Drink} from '../../service/drink.service';
 import {Emulator} from '../../emulator/emulator.interface';
@@ -10,7 +10,6 @@ import {Button} from 'primeng/button';
 @Component({
   selector: 'app-cash-payment',
   imports: [
-    CurrencyPipe,
     FormsModule,
     NgIf,
     Button
@@ -37,7 +36,7 @@ export class CashPaymentComponent {
       this.emulator.StopCashin(() => undefined);
       this.drinkStateService.isPreparing = true;
       this.drinkStateService.setVendResult(null);
-      this.emulator.Vend(0, (result) => {
+      this.emulator.Vend(this.drink!.id, (result) => {
         this.drinkStateService.setVendResult(result);
       })
       this.router.navigate(['/preparation']);
