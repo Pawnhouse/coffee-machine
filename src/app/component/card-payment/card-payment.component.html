@@ -1,15 +1,44 @@
-<h2>Оплата банковской картой</h2>
-<ng-container *ngIf="drink; else noDrink">
-  <p>Сумма к оплате: {{ drink.price | currency }}</p>
-  <p>{{ message }}</p>
-  <ng-container *ngIf="!shouldShowBackButton">
-    <button (click)="emulator.BankCardCancel()">Отмена</button>
+<div class="page-container">
+  <ng-container *ngIf="drink; else noDrink">
+    <div class="center-container">
+      <h2>Оплата банковской картой</h2>
+      <p>Сумма к оплате: {{ drink.price }} ₽</p>
+      <p>{{ message }}</p>
+      <ng-container *ngIf="!shouldShowBackButton">
+        <small>Нажмите Ctrl+1 для успешной операции</small>
+        <small>Ctrl+0 – для неудачной</small>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="!shouldShowBackButton">
+      <p-button
+        class="custom-button"
+        [style]="{width: '100%'}"
+        (onClick)="emulator.BankCardCancel()"
+      >
+        Отмена
+      </p-button>
+    </ng-container>
+    <ng-container *ngIf="shouldShowBackButton">
+      <p-button
+        class="custom-button"
+        [style]="{width: '100%'}"
+        (onClick)="location.back()"
+      >
+        Назад
+      </p-button>
+    </ng-container>
   </ng-container>
-  <ng-container *ngIf="shouldShowBackButton">
-    <button (click)="location.back()">Назад</button>
-  </ng-container>
-</ng-container>
-<ng-template #noDrink>
-  <p>Выберите напиток</p>
-  <button (click)="router.navigate(['/'])">Главная</button>
-</ng-template>
+  <ng-template #noDrink>
+    <div class="center-container">
+      <h2>Оплата банковской картой</h2>
+      <p>Выберите напиток</p>
+    </div>
+    <p-button
+      class="custom-button"
+      [style]="{width: '100%'}"
+      (onClick)="router.navigate(['/'])"
+    >
+      Главная
+    </p-button>
+  </ng-template>
+</div>

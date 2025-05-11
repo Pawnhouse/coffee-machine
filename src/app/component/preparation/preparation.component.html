@@ -1,2 +1,19 @@
-<h2>Приготовление напитка</h2>
-<p>{{ getStatus() }}</p>
+<div class="page-container">
+  <div class="center-container">
+    <h2>Приготовление напитка</h2>
+    <p>{{ getStatus() }}</p>
+    <ng-container *ngIf="vendResult === null">
+      <small>Ctrl+1 – успех</small>
+      <small>Ctrl+0 – неудача</small>
+    </ng-container>
+  </div>
+
+  <p-button
+    *ngIf="vendResult !== null"
+    class="custom-button"
+    [style]="{width: '100%'}"
+    (onClick)="router.navigate(['/'])"
+  >
+    Главная
+  </p-button>
+</div>

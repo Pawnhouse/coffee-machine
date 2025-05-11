@@ -5,13 +5,15 @@ import {FormsModule} from '@angular/forms';
 import {Drink} from '../../service/drink.service';
 import {Emulator} from '../../emulator/emulator.interface';
 import {DrinkStateService} from '../../service/drink-state.service';
+import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-cash-payment',
   imports: [
     CurrencyPipe,
     FormsModule,
-    NgIf
+    NgIf,
+    Button
   ],
   templateUrl: './cash-payment.component.html',
   styleUrl: './cash-payment.component.css'

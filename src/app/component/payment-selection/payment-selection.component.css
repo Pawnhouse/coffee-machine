@@ -1,27 +1,6 @@
-.payment-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  box-sizing: border-box;
-  height: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .back-button {
   width: 100px;
   font-size: 40px;
-}
-
-.title-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
 }
 
 h2 {
@@ -40,31 +19,4 @@ h2 {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-}
-
-.description {
-  font-size: 16px;
-  color: #666;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-  width: 100%;
-}
-
-.payment-button {
-  --p-button-primary-background: #F5D009;
-  --p-button-primary-color: #000;
-  --p-button-primary-hover-color: #000;
-  --p-button-primary-active-color: #000;
-
-  font-size: 18px;
-  width: 100%;
-  max-width: 300px;
-  display: block;
 }

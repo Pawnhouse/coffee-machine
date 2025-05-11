@@ -4,11 +4,13 @@ import {CommonModule, Location} from '@angular/common';
 import {Emulator} from '../../emulator/emulator.interface';
 import {Drink} from '../../service/drink.service';
 import {DrinkStateService} from '../../service/drink-state.service';
+import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-card-payment',
   imports: [
-    CommonModule
+    CommonModule,
+    Button
   ],
   templateUrl: './card-payment.component.html',
   styleUrl: './card-payment.component.css'

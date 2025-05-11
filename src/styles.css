@@ -21,3 +21,42 @@ body {
   font-family: Mont, sans-serif;
   line-height: 1;
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-button {
+  --p-button-primary-color: #000;
+  --p-button-primary-hover-color: #000;
+  --p-button-primary-active-color: #000;
+
+  font-size: 18px;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+}
