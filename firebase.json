@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/coffee-machine/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
